@@ -5,12 +5,24 @@ using UnityEngine;
 public class InputSystem : MonoBehaviour
 {
     public static InputSystem inputSystem;
-    [HideInInspector]public float inputValue;
     private void Awake() {
+        //Assigned inputSystem to this script
         inputSystem = this;
     }
     public float Movement(){
-        inputValue = Input.GetAxisRaw("Horizontal");
+        float inputValue = Input.GetAxisRaw("Horizontal");
+        return inputValue;
+    }
+
+    //Will trigger if press button key
+    public bool JumpPress(){
+        bool inputValue = Input.GetButtonDown("Jump");
+        return inputValue;
+    }
+
+    //Will trigger if release button key
+    public bool JumpUp(){
+        bool inputValue = Input.GetButtonUp("Jump");
         return inputValue;
     }
 }

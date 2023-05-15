@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {   
+    //Jump attribute
     private Rigidbody2D rb;
     private float speed = 5f;
     [SerializeField] private float groundLength;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField]private bool onGround;
+
+    //Die attribute
+    private bool playerDie;
+    private Vector3 checkpointPosition;
+
+    private void Start() {
+        checkpointPosition = transform.position;
+    }
     private void Update() {
         if(rb == null)
             rb = GetComponent<Rigidbody2D>();
@@ -22,12 +30,30 @@ public class CharacterController : MonoBehaviour
     }
 
     private void PlayerJump(){
-        onGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
-        print(onGround);
-        if(onGround){
-            
+        RaycastHit2D onGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
+        float jumpForce = 10f;
+        
+        if(onGround && InputSystem.inputSystem.JumpPress()){
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        //Smoothing falling player
+        if(rb.velocity.y < 0){
+            rb.velocity += Physics2D.gravity * Time.deltaTime * 0.6f;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Spike")){
+            playerDie = true;
+        }
+    }
+    private void FixedUpdate() {
+        if(playerDie){
+            gameObject.SetActive(false);
+        }
+    }
+
+    
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;

@@ -18,7 +18,6 @@ public class CameraFollow : MonoBehaviour
     {
         if (!collideLeftWall)
         {
-            print("Not collide");
             //Store current possiont to fixed y and z position
             targetPosition = new Vector3(target.position.x, 0f, -10f);
             transform.position = targetPosition;
