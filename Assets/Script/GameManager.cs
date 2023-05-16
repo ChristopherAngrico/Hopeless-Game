@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private GameObject player;
+    [HideInInspector]public Vector3 checkpointPosition;
     public static GameManager instance;
     private void Awake() {
         if(instance != null)
@@ -18,10 +19,11 @@ public class GameManager : MonoBehaviour
     }
 
     private void LoadScene(){
-        SceneManager.LoadScene();
+        SceneManager.LoadScene("GameScene");
     }
 
-    public void ResetGame(Vector3 checkPoint){
-        player.transform.position = checkPoint;
+    public void ResetGame(){
+        player.transform.position = checkpointPosition;
+        // LoadScene();
     }
 }
