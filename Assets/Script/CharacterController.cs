@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    //Jump attribute
+    //Physics
     private Rigidbody2D rb;
+
+    //Movement
     private float speed = 5f;
+    private bool collideLeftWall;
+
+    //Jump
     [SerializeField] private float groundLength;
     [SerializeField] private LayerMask groundLayer;
 
-    //Die attribute
+    //Die
     private bool playerDie;
     private void Start()
     {
@@ -26,32 +31,46 @@ public class CharacterController : MonoBehaviour
 
     private void PlayerMove()
     {
-        float calculation = InputSystem.inputSystem.Movement() * speed;
+        float calculation = 0;
+        //When player collide wall will freeze playermovement
+        if (collideLeftWall && InputSystem.inputSystem.Movement() != -1)
+        {
+            collideLeftWall = false;
+        }
+        if (!collideLeftWall)
+        {
+            calculation = InputSystem.inputSystem.Movement() * speed;
+        }
         rb.velocity = new Vector2(calculation, rb.velocity.y);
     }
 
     private void PlayerJump()
     {
         RaycastHit2D onGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
-        float jumpForce = 10f;
+        float jumpForce = 8f;
 
         if (onGround && InputSystem.inputSystem.JumpPress())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         //Smoothing falling player
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0.5)
         {
-            rb.velocity += Physics2D.gravity * Time.deltaTime * 0.6f;
+            rb.velocity += Physics2D.gravity * Time.deltaTime * 0.8f;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Spike"))
-        {
             playerDie = true;
+
+        if (other.gameObject.CompareTag("WallLeftSide"))
+        {
+            print("Wall");
+            collideLeftWall = true;
         }
+
     }
     private void FixedUpdate()
     {
@@ -70,10 +89,11 @@ public class CharacterController : MonoBehaviour
 
     }
 
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Debug.DrawLine(transform.position, transform.position + (groundLength * Vector3.down));
     }
+
+
 }
