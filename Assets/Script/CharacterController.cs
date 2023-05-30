@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     private bool collideLeftWall;
 
     //Jump
-    [SerializeField] private float groundLength;
+    private float groundLength = 0.1f;
     [SerializeField] private LayerMask groundLayer;
 
     //Die
@@ -46,7 +46,7 @@ public class CharacterController : MonoBehaviour
 
     private void PlayerJump()
     {
-        RaycastHit2D onGround = Physics2D.Raycast(transform.position, Vector2.down, groundLength, groundLayer);
+        RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f,Vector2.down, groundLength, groundLayer);
         float jumpForce = 8f;
 
         if (onGround && InputSystem.inputSystem.JumpPress())
@@ -62,14 +62,11 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Spike"))
+        if (other.gameObject.CompareTag("TopSpike") || other.gameObject.CompareTag("BotSpike"))
             playerDie = true;
 
         if (other.gameObject.CompareTag("WallLeftSide"))
-        {
-            print("Wall");
             collideLeftWall = true;
-        }
 
     }
     private void FixedUpdate()
@@ -92,8 +89,5 @@ public class CharacterController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Debug.DrawLine(transform.position, transform.position + (groundLength * Vector3.down));
     }
-
-
 }
