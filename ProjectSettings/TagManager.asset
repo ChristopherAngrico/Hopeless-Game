@@ -6,8 +6,14 @@ TagManager:
   tags:
   - WallLeftSide
   - WallRightSide
-  - TopSpike
   - BotSpike
+  - TopObstacle
+  - CheckPoint
+  - LimitView
+  - TopSpike
+  - TopBucket
+  - Trigger
+  - Arrow
   layers:
   - Default
   - TransparentFX

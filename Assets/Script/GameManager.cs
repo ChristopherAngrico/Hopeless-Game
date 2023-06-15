@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     private GameObject player;
     [HideInInspector]public Vector3 checkpointPosition;
-    public static GameManager instance;
+    public bool triggerCheckPoint;
     private void Awake() {
         if(instance != null)
             DestroyImmediate(gameObject);
@@ -16,14 +17,16 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         player = GameObject.Find("Character");
+        checkpointPosition = player.transform.position;
     }
 
     private void LoadScene(){
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("EasyMode");
     }
 
     public void ResetGame(){
-        player.transform.position = checkpointPosition;
-        // LoadScene();
+        LoadScene();
+        // player.transform.position = checkpointPosition;
+        // triggerCheckPoint = true;
     }
 }

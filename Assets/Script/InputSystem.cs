@@ -10,7 +10,7 @@ public class InputSystem : MonoBehaviour
         inputSystem = this;
     }
     public float Movement(){
-        float inputValue = Input.GetAxisRaw("Horizontal");
+        float inputValue = Input.GetAxis("Horizontal");
         return inputValue;
     }
 

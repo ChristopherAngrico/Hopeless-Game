@@ -17,12 +17,12 @@ public class CharacterController : MonoBehaviour
 
     //Die
     private bool playerDie;
-    private void Start()
-    {
-        GameManager.instance.checkpointPosition = transform.position;
+    private void Start() {
+        transform.position = GameManager.instance.checkpointPosition;
     }
     private void Update()
     {
+        // print(transform.position);
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
         PlayerMove();
@@ -33,7 +33,7 @@ public class CharacterController : MonoBehaviour
     {
         float calculation = 0;
         //When player collide wall will freeze playermovement
-        if (collideLeftWall && InputSystem.inputSystem.Movement() != -1)
+        if (collideLeftWall && InputSystem.inputSystem.Movement() < 0)
         {
             collideLeftWall = false;
         }
@@ -46,7 +46,7 @@ public class CharacterController : MonoBehaviour
 
     private void PlayerJump()
     {
-        RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f,Vector2.down, groundLength, groundLayer);
+        RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f, Vector2.down, groundLength, groundLayer);
         float jumpForce = 8f;
 
         if (onGround && InputSystem.inputSystem.JumpPress())
@@ -62,12 +62,18 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("TopSpike") || other.gameObject.CompareTag("BotSpike"))
+        if (other.gameObject.CompareTag("TopSpike") || other.gameObject.CompareTag("BotSpike") || other.gameObject.CompareTag("TopObstacle") || other.gameObject.CompareTag("Arrow"))
             playerDie = true;
 
         if (other.gameObject.CompareTag("WallLeftSide"))
             collideLeftWall = true;
-
+        if (other.gameObject.CompareTag("CheckPoint"))
+        {
+            
+            Vector3 checkPointPosition = new Vector3(other.transform.position.x, transform.position.y, transform.position.z);
+            GameManager.instance.checkpointPosition = checkPointPosition;
+            // print(GameManager.instance.checkpointPosition);
+        }
     }
     private void FixedUpdate()
     {
@@ -81,8 +87,8 @@ public class CharacterController : MonoBehaviour
     private void ResetGame()
     {
         playerDie = false;
-        GameManager.instance.ResetGame();
         gameObject.SetActive(true);
+        GameManager.instance.ResetGame();
 
     }
 
