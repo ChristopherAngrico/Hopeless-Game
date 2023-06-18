@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
 
     //Movement
     private float speed = 5f;
-    private bool collideLeftWall;
+    private bool collideLeftWall, collideRightWall;
 
     //Jump
     private float groundLength = 0.1f;
@@ -17,12 +17,18 @@ public class CharacterController : MonoBehaviour
 
     //Die
     private bool playerDie;
-    private void Start() {
-        transform.position = GameManager.instance.checkpointPosition;
+    private void Awake()
+    {
+        //make sure that player position is stay at original position
+        if (!GameManager.instance.changeScene)
+        {
+            print("Start");
+            transform.position = GameManager.instance.checkpointPosition;
+        }
     }
+
     private void Update()
     {
-        // print(transform.position);
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
         PlayerMove();
@@ -38,6 +44,18 @@ public class CharacterController : MonoBehaviour
             collideLeftWall = false;
         }
         if (!collideLeftWall)
+        {
+            calculation = InputSystem.inputSystem.Movement() * speed;
+        }
+        if (collideRightWall && InputSystem.inputSystem.Movement() > 0)
+        {
+            collideRightWall = false;
+        }
+        if (!collideLeftWall)
+        {
+            calculation = InputSystem.inputSystem.Movement() * speed;
+        }
+        if (!collideRightWall)
         {
             calculation = InputSystem.inputSystem.Movement() * speed;
         }
@@ -67,12 +85,17 @@ public class CharacterController : MonoBehaviour
 
         if (other.gameObject.CompareTag("WallLeftSide"))
             collideLeftWall = true;
+        if (other.gameObject.CompareTag("WallRightSide"))
+            collideRightWall = true;
         if (other.gameObject.CompareTag("CheckPoint"))
         {
-            
             Vector3 checkPointPosition = new Vector3(other.transform.position.x, transform.position.y, transform.position.z);
             GameManager.instance.checkpointPosition = checkPointPosition;
-            // print(GameManager.instance.checkpointPosition);
+        }
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            GameManager.instance.changeScene = true;
+            GameManager.instance.LoadLevel();
         }
     }
     private void FixedUpdate()

@@ -1,35 +1,44 @@
 using UnityEngine;
+using System.Collections;
 
 public class MovingObstacle : MonoBehaviour
 {
     float startPoint;
     public float endpoint; //endpoint of move
     Vector3 desiredDestination;
-    float current;
-    [SerializeField]float speed = 5f; // Adjust the speed value as needed
+    [SerializeField] float speed = 5f; // Adjust the speed value as needed
 
     private void Awake()
     {
-        startPoint = transform.position.y; //grab move down end point
+        startPoint = transform.localPosition.y; //grab move down end point
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
-        current += speed * Time.deltaTime;
+        StartCoroutine(MoveObstacle());
+    }
 
-        float tolerance = 0.1f; // Adjust the tolerance value as needed
+    IEnumerator MoveObstacle()
+    {
+        float tolerance = 0.01f; // Adjust the tolerance value as needed
 
-        if (Mathf.Abs(transform.position.y - endpoint) < tolerance)
+        while (true)
         {
-            desiredDestination = new Vector3(transform.position.x, startPoint, transform.position.z);
-        }
-        else if (Mathf.Abs(transform.position.y - startPoint) < tolerance)
-        {
-            desiredDestination = new Vector3(transform.position.x, endpoint, transform.position.z);
-        }
+            if (Mathf.Abs(transform.localPosition.y - endpoint) < tolerance)
+            {
+                desiredDestination = new Vector3(transform.localPosition.x, startPoint, transform.localPosition.z);
+                print(desiredDestination);
+            }
+            else if (Mathf.Abs(transform.localPosition.y - startPoint) < tolerance)
+            {
+                desiredDestination = new Vector3(transform.localPosition.x, endpoint, transform.localPosition.z);
+                yield return new WaitForSeconds(2f); // Delay for 2 seconds
+            }
 
-        Vector3 movingSpike = Vector3.MoveTowards(transform.position, desiredDestination, speed * Time.deltaTime);
-        transform.position = movingSpike;
+            Vector3 movingSpike = Vector3.MoveTowards(transform.localPosition, desiredDestination, speed * Time.deltaTime);
+            transform.localPosition = movingSpike;
+
+            yield return null;
+        }
     }
 }
-

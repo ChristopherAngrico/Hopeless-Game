@@ -9,10 +9,8 @@ TagManager:
   - BotSpike
   - TopObstacle
   - CheckPoint
-  - LimitView
   - TopSpike
   - TopBucket
-  - Trigger
   - Arrow
   layers:
   - Default

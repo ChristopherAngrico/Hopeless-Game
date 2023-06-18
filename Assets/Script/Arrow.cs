@@ -6,7 +6,6 @@ public class Arrow : MonoBehaviour
 {
     public GameObject gArrow;
     public bool checkTriggered = false;
-    public bool arrowTrigger;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && !checkTriggered)
@@ -20,7 +19,7 @@ public class Arrow : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(gArrow, GameObject.FindWithTag("Arrow").transform.localPosition, Quaternion.identity);
+            Instantiate(gArrow, GameObject.FindWithTag("Arrow").transform.position, Quaternion.identity);
             yield return new WaitForSeconds(2f);
         }
     }
