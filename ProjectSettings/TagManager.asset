@@ -12,6 +12,9 @@ TagManager:
   - TopSpike
   - TopBucket
   - Arrow
+  - MovingGround
+  - Play
+  - Pause
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+
     public GameObject gArrow;
     public bool checkTriggered = false;
     private void OnTriggerEnter2D(Collider2D other)

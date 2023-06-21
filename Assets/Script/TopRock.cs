@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TopSpike : MonoBehaviour
+
+public class TopRock : MonoBehaviour
 {
     private GameObject[] traps;
     private bool checkedTriggered;
@@ -16,17 +17,22 @@ public class TopSpike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !checkedTriggered)
         {
-            StartCoroutine(nameof(FallingSpike));
+            StartCoroutine(nameof(FallingRock));
             checkedTriggered = true;
         }
     }
 
-    private IEnumerator FallingSpike()
+    private IEnumerator FallingRock()
     {
         foreach (GameObject trap in traps)
         {
             trap.GetComponent<Rigidbody2D>().isKinematic = false;
-            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(2f);
+        foreach (GameObject trap in traps)
+        {
+            Destroy(trap);
         }
     }
 }
+

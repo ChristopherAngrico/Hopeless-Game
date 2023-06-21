@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
         //make sure that player position is stay at original position
         if (!GameManager.instance.changeScene)
         {
-            print("Start");
+            // print("Start");
             transform.position = GameManager.instance.checkpointPosition;
         }
         anim = GetComponent<Animator>();
@@ -102,6 +102,10 @@ public class CharacterController : MonoBehaviour
         {
             GameManager.instance.changeScene = true;
             GameManager.instance.LoadLevel();
+        }
+        if(other.gameObject.CompareTag("MovingGround")){
+            transform.position = new Vector3(other.gameObject.transform.position.x, transform.position.y, transform.position.z);
+            print("trigger");
         }
     }
     private void FixedUpdate()

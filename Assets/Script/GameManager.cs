@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private GameObject player;
+    public GameObject play, pause;
+    public AudioSource musicSource;
     [HideInInspector] public Vector3 checkpointPosition;
     [HideInInspector] public bool changeScene; //After changing scene player and camera stay at originial position
     private void Awake()
@@ -25,13 +27,19 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void LoadLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        print(changeScene);
-        Invoke(nameof(ChangeScene), 0.01f);
+    public void LoadLevel()
+    {
+        if (SceneManager.GetActiveScene().name != "HardMode")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            // Invoke(nameof(ChangeScene), 0.01f);
+        }else{
+            SceneManager.LoadScene("MenuScene");
+        }
         // ChangeScene();
     }
-    void ChangeScene(){
+    void ChangeScene()
+    {
         changeScene = false;
     }
     public void ResetGame()
@@ -43,5 +51,20 @@ public class GameManager : MonoBehaviour
             // triggerCheckPoint = true;
         }
 
+    }
+
+    public void Pause(){
+        Time.timeScale = 0;
+        play.SetActive(true);
+        pause.SetActive(false);
+        musicSource.Pause();
+
+    }
+
+    public void Play(){
+        Time.timeScale = 1;
+        pause.SetActive(true);
+        play.SetActive(false);
+        musicSource.Play();
     }
 }
