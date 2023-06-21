@@ -125,7 +125,7 @@ TextureImporter:
         width: 814
         height: 665
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,6 +133,111 @@ TextureImporter:
       bones: []
       spriteID: 3c2c3606004e2b38f9a372668c46b3e1
       internalID: -2001436644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 2_1
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 164
+        width: 881
+        height: 802
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d4692e3a78beabe97e092c4529dc25
+      internalID: 1152092102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 2_2
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 152
+        width: 761
+        height: 802
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cee4a482538d4ba81546c820583527
+      internalID: -1457387450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 2_3
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 668
+        width: 575
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de005cb5c99aab63bb8a09247967519
+      internalID: -769365185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 2_4
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 791
+        width: 187
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd92a9bc1fa90d03e93ce16bafdb9f98
+      internalID: -1247477631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 2_5
+      rect:
+        serializedVersion: 2
+        x: 3384
+        y: 703
+        width: 257
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1b7339556b487288782c767e0f0932
+      internalID: -1148171758
       vertices: []
       indices: 
       edges: []
@@ -149,6 +254,11 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       barang2 ga penting 2_0: -2001436644
+      barang2 ga penting 2_1: 1152092102
+      barang2 ga penting 2_2: -1457387450
+      barang2 ga penting 2_3: -769365185
+      barang2 ga penting 2_4: -1247477631
+      barang2 ga penting 2_5: -1148171758
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

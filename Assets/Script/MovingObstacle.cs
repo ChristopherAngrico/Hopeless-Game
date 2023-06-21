@@ -27,12 +27,13 @@ public class MovingObstacle : MonoBehaviour
             if (Mathf.Abs(transform.localPosition.y - endpoint) < tolerance)
             {
                 desiredDestination = new Vector3(transform.localPosition.x, startPoint, transform.localPosition.z);
-                print(desiredDestination);
+                // print(desiredDestination);
             }
             else if (Mathf.Abs(transform.localPosition.y - startPoint) < tolerance)
             {
                 desiredDestination = new Vector3(transform.localPosition.x, endpoint, transform.localPosition.z);
-                yield return new WaitForSeconds(2f); // Delay for 2 seconds
+                if(!GameObject.Find("Punch"))
+                    yield return new WaitForSeconds(2f); // Delay for 2 seconds
             }
 
             Vector3 movingSpike = Vector3.MoveTowards(transform.localPosition, desiredDestination, speed * Time.deltaTime);

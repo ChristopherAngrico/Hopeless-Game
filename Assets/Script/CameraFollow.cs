@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (other.gameObject.CompareTag("WallLeftSide"))
         {
+            print("Anjing");
             collideLeftWall = true;
         }
         if (other.gameObject.CompareTag("WallRightSide"))

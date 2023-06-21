@@ -116,17 +116,71 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: barang2 ga penting 1_0
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 144
+        width: 726
+        height: 694
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94b7cc99f927a596bd7037bd51cab57
+      internalID: -1835011613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: barang2 ga penting 1_1
       rect:
         serializedVersion: 2
-        x: 1732
-        y: 117
-        width: 1975
-        height: 886
+        x: 2634
+        y: 123
+        width: 1086
+        height: 560
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8458cb55ffd94a3bf9863985df59a85f
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barang2 ga penting 1_2
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 67
+        width: 373
+        height: 896
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,8 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: daad7d3beab321cccb7b881b4c294149
+      internalID: 967682458
       vertices: []
       indices: 
       edges: []
@@ -143,7 +197,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f778c6e4007b4e99cbd1c8fb3e9fc061
     internalID: 0
     vertices: []
     indices: 
@@ -151,7 +205,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      barang2 ga penting 1_0: -1835011613
       barang2 ga penting 1_1: 21300000
+      barang2 ga penting 1_2: 967682458
+      barang2 ga penting 1_3: -796225965
+      barang2 ga penting 1_4: 253435950
+      barang2 ga penting 1_5: -190075349
+      barang2 ga penting 1_6: -69642470
+      barang2 ga penting 1_7: 452307825
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -17,6 +17,9 @@ public class CharacterController : MonoBehaviour
 
     //Die
     private bool playerDie;
+
+    //Animator
+    Animator anim;
     private void Awake()
     {
         //make sure that player position is stay at original position
@@ -25,6 +28,7 @@ public class CharacterController : MonoBehaviour
             print("Start");
             transform.position = GameManager.instance.checkpointPosition;
         }
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,26 +42,21 @@ public class CharacterController : MonoBehaviour
     private void PlayerMove()
     {
         float calculation = 0;
-        //When player collide wall will freeze playermovement
-        if (collideLeftWall && InputSystem.inputSystem.Movement() < 0)
+        //player will move if not collide any wall
+        if (!collideLeftWall && !collideRightWall)
+        {
+            calculation = InputSystem.inputSystem.Movement() * speed;
+            anim.SetFloat("Walking", Mathf.Abs(calculation));
+        }
+        //stop the player if collide the left wall
+        if (collideLeftWall && InputSystem.inputSystem.Movement() > 0)
         {
             collideLeftWall = false;
         }
-        if (!collideLeftWall)
-        {
-            calculation = InputSystem.inputSystem.Movement() * speed;
-        }
-        if (collideRightWall && InputSystem.inputSystem.Movement() > 0)
+        //stop the player if collide the right wall
+        if (collideRightWall && InputSystem.inputSystem.Movement() < 0)
         {
             collideRightWall = false;
-        }
-        if (!collideLeftWall)
-        {
-            calculation = InputSystem.inputSystem.Movement() * speed;
-        }
-        if (!collideRightWall)
-        {
-            calculation = InputSystem.inputSystem.Movement() * speed;
         }
         rb.velocity = new Vector2(calculation, rb.velocity.y);
     }
@@ -66,16 +65,23 @@ public class CharacterController : MonoBehaviour
     {
         RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f, Vector2.down, groundLength, groundLayer);
         float jumpForce = 8f;
-
         if (onGround && InputSystem.inputSystem.JumpPress())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.SetBool("Jumping", true);
+
         }
+        if (onGround && rb.velocity.y < 0.5)
+            anim.SetBool("Jumping", false);
         //Smoothing falling player
         if (rb.velocity.y < 0.5)
-        {
             rb.velocity += Physics2D.gravity * Time.deltaTime * 0.8f;
-        }
+            
+    
+        if (rb.velocity.y > 0)
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ground"), true);
+        else
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ground"), false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -119,4 +125,5 @@ public class CharacterController : MonoBehaviour
     {
         Gizmos.color = Color.red;
     }
+
 }
