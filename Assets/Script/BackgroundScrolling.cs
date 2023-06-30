@@ -5,7 +5,6 @@ using UnityEngine;
 public class BackgroundScrolling : MonoBehaviour
 {
     public float Speed;
-
     private float offset;
     private Material mat;
 

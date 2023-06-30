@@ -37,6 +37,7 @@ public class CharacterController : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
         PlayerMove();
         PlayerJump();
+        FlipSprite();
     }
 
     private void PlayerMove()
@@ -124,7 +125,14 @@ public class CharacterController : MonoBehaviour
         GameManager.instance.ResetGame();
 
     }
-
+    private void FlipSprite(){
+        if(InputSystem.inputSystem.Movement() < 0){
+            transform.rotation = Quaternion.Euler(0,0,0);
+        }
+        if(InputSystem.inputSystem.Movement() > 0){
+            transform.rotation = Quaternion.Euler(0,180,0);
+        }
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

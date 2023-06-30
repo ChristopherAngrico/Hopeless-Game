@@ -32,15 +32,13 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "HardMode")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            // Invoke(nameof(ChangeScene), 0.01f);
         }else{
             SceneManager.LoadScene("MenuScene");
         }
-        // ChangeScene();
     }
-    void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
-        changeScene = false;
+        SceneManager.LoadScene(sceneName);
     }
     public void ResetGame()
     {
