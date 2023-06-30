@@ -104,10 +104,6 @@ public class CharacterController : MonoBehaviour
             GameManager.instance.changeScene = true;
             GameManager.instance.LoadLevel();
         }
-        if(other.gameObject.CompareTag("MovingGround")){
-            transform.position = new Vector3(other.gameObject.transform.position.x, transform.position.y, transform.position.z);
-            print("trigger");
-        }
     }
     private void FixedUpdate()
     {

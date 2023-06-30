@@ -10,7 +10,6 @@ public class MovingGround : MonoBehaviour
     public GameObject player;
     public Transform[] wayPoints;
     int pointIndex, pointCount, direction = 1;
-    bool movePlayer;
     private void Awake()
     {
         wayPoints = new Transform[ways.transform.childCount];
@@ -35,11 +34,6 @@ public class MovingGround : MonoBehaviour
         {
             NextPoint();
         }
-        if (movePlayer)
-        {
-            Vector3 followMovingGround = new Vector3(transform.position.x, 0, 0);
-            player.transform.position += followMovingGround;
-        }
     }
 
     private void NextPoint()
@@ -55,18 +49,17 @@ public class MovingGround : MonoBehaviour
         pointIndex += direction;
         targetPos = wayPoints[pointIndex].transform.position;
     }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
+ 
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player")
         {
-            movePlayer = true;
+            other.gameObject.transform.SetParent(transform);
         }
     }
-    private void OnCollisionExit2D(Collision2D other)
-    {
+    private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "Player")
         {
-            movePlayer = false;
+            other.gameObject.transform.SetParent(null);
         }
     }
 }
