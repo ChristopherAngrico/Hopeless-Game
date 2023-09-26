@@ -1,6 +1,6 @@
 # Hopeless
 
-<img src="" height="70%" width="70%">
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/Assets/Hopless.GIF?raw=true" height="70%" width="70%">
 
 ## Description
 Simple 2D game
