@@ -14,7 +14,7 @@ The following controls are bound in-game, for gameplay and testing.
 
 | Key Binding       | Function          |
 | ----------------- | ----------------- |
-| W,S           | Move up and down |
+| A,D           | Standart Movement |
 
 ### Script
 
