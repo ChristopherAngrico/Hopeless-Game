@@ -6,7 +6,7 @@
 A game set in a dark environment with challenging-to-see obstacles that can frustrate players.
 
 ## Game Mechanic
-To win the game, the ball must hit the enemy's goal.  
+Avoid any obstacles that can lead to your character's death, including moving and unexpected obstacles 
 
 ## Game controls
 
@@ -23,13 +23,22 @@ This game operates on a series of scripts..
 
 | Script       | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
-| `AddScore` | Manage Score. |
-| `BallMovement`  | To move ball. |
+| `Arrow` | deploy arrow. |
+| `BackgroundScrolling`  | Create parralax background. |
 | `ChangeScene`  | Change to another scene. |
-| `GameManager`  | To manage point.  |
-| `PlayerAI`  | AI enemy.  |
-| `Player movement`  | Handle player movement.  |
-| `ShowTheWinner`  | Show whose the winner. |
+| `Bridge`  | interactive bridge.  |
+| `CameraFollow`  | Camera follow player position.  |
+| `CharacterController`  | Control player movement, and jump.  |
+| `Falling ground`  | After player stand in top of the ground certain time will fall and destroy. |
+| `Game manager`  | Control load level, reset game, and checkpoint. |
+| `Input System`  | Handle all input |
+| `Moving Ground`  | Handle moving ground |
+| `Music Loop`  | handle music loop |
+| `Moving Obstacle`  | Handle moving obstacle |
+| `Shake`  | Shake obstacle |
+| `Shoot arrow`  | TriggerArrow |
+| `Swing`  | Handle swing obstacle |
+| `TopRock`  | Upside rock will be fall if getting trigger |
 
 ## Short Gameplay
 From here:
