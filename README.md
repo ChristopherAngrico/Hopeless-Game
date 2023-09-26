@@ -3,7 +3,7 @@
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/Assets/Hopless.GIF?raw=true" height="70%" width="70%">
 
 ## Description
-Simple 2D game
+A game set in a dark environment with challenging-to-see obstacles that can frustrate players.
 
 ## Game Mechanic
 To win the game, the ball must hit the enemy's goal.  
