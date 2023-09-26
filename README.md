@@ -40,6 +40,3 @@ This game operates on a series of scripts..
 | `Swing`  | Handle swing obstacle |
 | `TopRock`  | Upside rock will be fall if getting trigger |
 
-## Short Gameplay
-From here:
-https://youtu.be/c2EhwdCH_wY
