@@ -1,6 +1,6 @@
 # Hopeless
 
-<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/Assets/Hopless.GIF?raw=true" height="70%" width="70%">
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/Assets/Hopless-min.gif?raw=true" height="70%" width="70%">
 
 ## Description
 A game set in a dark environment with challenging-to-see obstacles that can frustrate players.
