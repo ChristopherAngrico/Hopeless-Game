@@ -6,7 +6,20 @@
 A game set in a dark environment with challenging-to-see obstacles that can frustrate players.
 
 ## Game Mechanic
-Avoid any obstacles that can lead to your character's death, including moving and unexpected obstacles 
+<p>CheckPoint<p/><br/>
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/CheckPoint.png" height="30%" width="30%">
+  
+<p>Movement<p/><br/>
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Movement.GIF" height="30%" width="30%">
+
+<p>Jump<p/><br/>
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Jump.GIF" height="30%" width="30%">
+
+<p>MainMenu<p/><br/>
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/MainMenu.png" height="30%" width="30%">
+
+<p>Obstacle<p/><br/>
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Obstacle.GIF" height="30%" width="30%">
 
 ## Game controls
 
