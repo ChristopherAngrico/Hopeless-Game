@@ -15,7 +15,7 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <p>Jump<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Jump.GIF" height="30%" width="30%">
 
-<p>MainMenu<p/><br/>
+<p>Choose difficulty in main menu<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/MainMenu.png" height="30%" width="30%">
 
 <p>Obstacle<p/><br/>
