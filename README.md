@@ -46,6 +46,27 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <p>Movement<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7e33abf1-f6c2-4ca2-9264-99b138fb9920" height="30%" width="30%">
 
+```c#
+        float calculation = 0;
+        //player will move if not collide any wall
+        if (!collideLeftWall && !collideRightWall)
+        {
+            calculation = InputSystem.inputSystem.Movement() * speed;
+            anim.SetFloat("Walking", Mathf.Abs(calculation));
+        }
+        //stop the player if collide the left wall
+        if (collideLeftWall && InputSystem.inputSystem.Movement() > 0)
+        {
+            collideLeftWall = false;
+        }
+        //stop the player if collide the right wall
+        if (collideRightWall && InputSystem.inputSystem.Movement() < 0)
+        {
+            collideRightWall = false;
+        }
+        rb.velocity = new Vector2(calculation, rb.velocity.y);
+```
+
 <p>Jump<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7ec1d02b-25a6-49d2-9e89-24cc78910a03" height="30%" width="30%">
 
