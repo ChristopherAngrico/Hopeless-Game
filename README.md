@@ -71,7 +71,7 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7ec1d02b-25a6-49d2-9e89-24cc78910a03" height="30%" width="30%">
 
 ```c#
-RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f, Vector2.down, groundLength, groundLayer);
+        RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f, Vector2.down, groundLength, groundLayer);
         float jumpForce = 8f;
         if (onGround && InputSystem.inputSystem.JumpPress())
         {
