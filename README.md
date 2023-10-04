@@ -97,6 +97,7 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 
 <p>Obstacle<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/fb6e7510-35f6-40e5-978c-fe7b4b1f4ea7" height="30%" width="30%">
+  
 ```c#
    private void OnTriggerEnter2D(Collider2D other)
     {
