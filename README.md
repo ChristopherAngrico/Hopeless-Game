@@ -10,16 +10,22 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/CheckPoint.png" height="30%" width="30%">
   
 <p>Movement<p/><br/>
-<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Movement.GIF" height="30%" width="30%">
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7e33abf1-f6c2-4ca2-9264-99b138fb9920" height="30%" width="30%">
 
 <p>Jump<p/><br/>
-<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Jump.GIF" height="30%" width="30%">
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7ec1d02b-25a6-49d2-9e89-24cc78910a03" height="30%" width="30%">
+
+
+![Obstacle]()
+![Movement]()
+![JumpRev]()
+
 
 <p>Choose difficulty in main menu<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/MainMenu.png" height="30%" width="30%">
 
 <p>Obstacle<p/><br/>
-<img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/Obstacle.GIF" height="30%" width="30%">
+<img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/fb6e7510-35f6-40e5-978c-fe7b4b1f4ea7" height="30%" width="30%">
 
 ## Game controls
 
