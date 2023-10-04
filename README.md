@@ -70,6 +70,28 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <p>Jump<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7ec1d02b-25a6-49d2-9e89-24cc78910a03" height="30%" width="30%">
 
+```c#
+RaycastHit2D onGround = Physics2D.BoxCast(transform.position, GetComponent<SpriteRenderer>().bounds.size, 0f, Vector2.down, groundLength, groundLayer);
+        float jumpForce = 8f;
+        if (onGround && InputSystem.inputSystem.JumpPress())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.SetBool("Jumping", true);
+
+        }
+        if (onGround && rb.velocity.y < 0.5)
+            anim.SetBool("Jumping", false);
+        //Smoothing falling player
+        if (rb.velocity.y < 0.5)
+            rb.velocity += Physics2D.gravity * Time.deltaTime * 0.8f;
+            
+    
+        if (rb.velocity.y > 0)
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ground"), true);
+        else
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ground"), false);
+```
+
 <p>Choose difficulty in main menu<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/MainMenu.png" height="30%" width="30%">
 
