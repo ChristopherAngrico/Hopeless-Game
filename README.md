@@ -97,6 +97,29 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 
 <p>Obstacle<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/fb6e7510-35f6-40e5-978c-fe7b4b1f4ea7" height="30%" width="30%">
+```c#
+   private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && !checkedTriggered)
+        {
+            StartCoroutine(nameof(FallingRock));
+            checkedTriggered = true;
+        }
+    }
+
+    private IEnumerator FallingRock()
+    {
+        foreach (GameObject trap in traps)
+        {
+            trap.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
+        yield return new WaitForSeconds(2f);
+        foreach (GameObject trap in traps)
+        {
+            Destroy(trap);
+        }
+    }
+```
 
 ## Game controls
 
