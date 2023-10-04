@@ -9,6 +9,40 @@ A game set in a dark environment with challenging-to-see obstacles that can frus
 <p>CheckPoint<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/blob/main/AllPhoto/CheckPoint.png" height="30%" width="30%">
   
+```C#
+  private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Player")){
+            fadeIn = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Player")){
+            // print("Exit");
+            fadeOut = true;
+        }
+    }
+
+    private void FixedUpdate() {
+        if(fadeIn){
+            if(UI.alpha < 1){
+                UI.alpha += Time.fixedDeltaTime * 6;
+            }
+            if(UI.alpha >= 1){
+                fadeIn = false; 
+            }
+        }
+        if(fadeOut){
+            if(UI.alpha >= 0){
+                UI.alpha -= Time.fixedDeltaTime * 6;
+                // print(UI.alpha);
+            }
+            if(UI.alpha == 0){
+                fadeOut = false;
+            }
+        }
+    }
+```
+
 <p>Movement<p/><br/>
 <img src="https://github.com/ChristopherAngrico/Hopeless-Game/assets/87889745/7e33abf1-f6c2-4ca2-9264-99b138fb9920" height="30%" width="30%">
 
